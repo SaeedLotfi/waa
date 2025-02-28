@@ -22,11 +22,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDto> findAll() {
-        return listMapper.map(postRepo.findAll(), PostDto.class);
+        return listMapper.map((List) postRepo.findAll(), PostDto.class);
     }
 
     @Override
-    public PostDto findById(int id) {
+    public PostDto findById(Long id) {
         return modelMapper.map(postRepo.findById(id), PostDto.class);
     }
 
@@ -38,5 +38,10 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostDto save(Post post) {
         return modelMapper.map(postRepo.save(post), PostDto.class);
+    }
+
+    @Override
+    public List<PostDto> findByTitleContains(String title) {
+        return modelMapper.map(postRepo.findByTitleContains(title), List.class);
     }
 }

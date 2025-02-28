@@ -8,4 +8,6 @@ public interface UserService {
     List<User> findAll();
     User findById(Long id);
     User save(User user);
+    void delete(User user);
+    List<User> findUsersByPostsCountGreaterThan(int postCount);
 }

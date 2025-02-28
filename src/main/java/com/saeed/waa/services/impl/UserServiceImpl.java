@@ -27,4 +27,14 @@ public class UserServiceImpl implements UserService {
     public User save(User user) {
         return this.userRepo.save(user);
     }
+
+    @Override
+    public void delete(User user) {
+        this.userRepo.delete(user);
+    }
+
+    @Override
+    public List<User> findUsersByPostsCountGreaterThan(int postCount) {
+        return this.userRepo.findUsersByPostsCountGreaterThan(postCount);
+    }
 }

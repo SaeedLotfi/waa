@@ -38,4 +38,10 @@ public class UserController {
     public List<PostDto> findAllPosts(@PathVariable("id") Long id) {
         return this.postService.findByUserId(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable("id") long id) {
+        User user = this.userService.findById(id);
+        this.userService.delete(user);
+    }
 }

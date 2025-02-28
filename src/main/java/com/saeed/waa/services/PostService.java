@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface PostService {
     List<PostDto> findAll();
-    PostDto findById(int id);
+    PostDto findById(Long id);
     List<PostDto> findByUserId(Long userId);
     PostDto save(Post post);
+    List<PostDto> findByTitleContains(String title);
 }
