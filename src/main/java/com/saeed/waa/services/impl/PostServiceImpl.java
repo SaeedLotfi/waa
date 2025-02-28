@@ -31,6 +31,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<PostDto> findByUserId(Long userId) {
+        return listMapper.map(postRepo.findByUserId(userId), PostDto.class);
+    }
+
+    @Override
     public PostDto save(Post post) {
         return modelMapper.map(postRepo.save(post), PostDto.class);
     }

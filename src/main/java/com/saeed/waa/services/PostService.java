@@ -8,5 +8,6 @@ import java.util.List;
 public interface PostService {
     List<PostDto> findAll();
     PostDto findById(int id);
+    List<PostDto> findByUserId(Long userId);
     PostDto save(Post post);
 }

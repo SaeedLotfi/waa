@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class PostRepoImpl implements PostRepo {
@@ -13,8 +14,9 @@ public class PostRepoImpl implements PostRepo {
     private static int postId = 300;
     static {
         posts = new ArrayList<>();
-        posts.add(new Post(100, "Post 1", "Content 1", "Author 1"));
-        posts.add(new Post(200, "Post 2", "Content 2", "Author 2"));
+        posts.add(new Post(100, "Post 1", "Content 1", "Author 1", 1L));
+        posts.add(new Post(200, "Post 2", "Content 2", "Author 2", 1L));
+        posts.add(new Post(200, "Post 3", "Content 3", "Author 3", 2L));
     }
 
     @Override
@@ -29,6 +31,14 @@ public class PostRepoImpl implements PostRepo {
                 .filter(post -> post.getId() == id)
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Post> findByUserId(Long userId) {
+        return posts
+                .stream()
+                .filter(post -> Objects.equals(post.getUserId(), userId))
+                .toList();
     }
 
     @Override

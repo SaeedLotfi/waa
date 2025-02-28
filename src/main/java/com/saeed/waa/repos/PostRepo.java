@@ -7,5 +7,6 @@ import java.util.List;
 public interface PostRepo {
     List<Post> findAll();
     Post findById(int id);
+    List<Post> findByUserId(Long userId);
     Post save(Post post);
 }

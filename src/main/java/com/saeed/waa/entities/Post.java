@@ -1,15 +1,22 @@
 package com.saeed.waa.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Entity
+@Table(name = "posts")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     String title;
     String content;
     String author;
+
+    @Column(name = "user_id")
+    Long userId;
 }
