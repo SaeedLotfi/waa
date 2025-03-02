@@ -1,5 +1,6 @@
 package com.saeed.waa.services.impl;
 
+import com.saeed.waa.aspects.ExecutionTime;
 import com.saeed.waa.entities.User;
 import com.saeed.waa.repos.UserRepo;
 import com.saeed.waa.services.UserService;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
         return (List<User>) this.userRepo.findAll();
     }
 
+    @ExecutionTime
     @Override
     public User findById(Long id) {
         return this.userRepo.findById(id).get();
