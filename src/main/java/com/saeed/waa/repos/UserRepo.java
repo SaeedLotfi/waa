@@ -5,8 +5,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRepo extends CrudRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE SIZE(u.posts) > :minPostCount")
     List<User> findUsersByPostsCountGreaterThan(@Param("minPostCount") int minPostCount);
+    Optional<User> findByUsername(String username);
 }

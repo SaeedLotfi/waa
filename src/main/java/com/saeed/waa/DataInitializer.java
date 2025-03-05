@@ -16,10 +16,14 @@ public class DataInitializer {
         if (userRepo.count() == 0) { // Avoid duplicate entries
             User user1 = new User();
             user1.setName("Saeed Lotfi");
+            user1.setUsername("admin");
+            user1.setPassword("password");
             userRepo.save(user1);
 
             User user2 = new User();
             user2.setName("Awais Waheed");
+            user1.setUsername("user");
+            user1.setPassword("password");
             userRepo.save(user2);
 
             System.out.println("✅ Users added.");
